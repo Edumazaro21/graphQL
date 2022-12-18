@@ -1,0 +1,57 @@
+mutation createCategory {
+  createCategory(input: {name: "Faigth Song", description: "Best"}) {
+    id
+    name
+    description
+  }
+}
+
+query categories {
+  categories {
+    id
+    name
+    description
+  }
+}
+
+query categoriesWithCourses {
+  categories {
+    id
+    name
+    description
+    courses {
+      id
+      name
+      description
+      category {
+        id
+      }
+    }
+  }
+}
+
+mutation createCourse {
+  createCourse(
+    input: {name: "Trouxa 4", description: "Como ser um Troxa Expert", categoryId: "f5e7013c-da95-4765-bf28-c50042fc88e7"}
+  ) {
+    id
+    name
+    description
+    category {
+      id
+    }
+  }
+}
+
+query courses {
+  courses {
+    id
+    name
+    description
+    category {
+      id
+      name
+      description
+    }
+  }
+}
